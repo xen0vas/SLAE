@@ -11,7 +11,7 @@
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Create a Shell_Bind_TCP shellcode
-- Binds to a port__
-- Execs Shell on incoming connection__
-Port number should be easily configurable__
+- Binds to a port
+- Execs Shell on incoming connection
+Port number should be easily configurable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
