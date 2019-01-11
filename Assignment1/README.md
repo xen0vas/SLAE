@@ -9,7 +9,9 @@
 
 #### Assignment Description
 
-> __Create a Shell_Bind_TCP shellcode__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+__Create a Shell_Bind_TCP shellcode__
 - > __Binds to a port__
 - > __Execs Shell on incoming connection__
-> __Port number should be easily configurable__
+__Port number should be easily configurable__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
