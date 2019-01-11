@@ -7,7 +7,7 @@
 
 #### for more info check out my blog 
 
-> Assignment Description 
+> __Assignment Description__ 
 
 > __Create a Shell_Bind_TCP shellcode__
 - > __Binds to a port__
