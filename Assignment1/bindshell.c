@@ -1,3 +1,6 @@
+// Student ID : SLAE-1314 
+// Xenofon Vassilakopoulos 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
