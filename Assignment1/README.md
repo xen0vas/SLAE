@@ -10,8 +10,8 @@
 #### Assignment Description
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Create a Shell_Bind_TCP shellcode
+Create a TCP Bind shellcode considering the following
 - Binds to a port
 - Execs Shell on incoming connection
-Port number should be easily configurable
+- Port number should be easily configurable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
