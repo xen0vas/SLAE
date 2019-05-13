@@ -1,4 +1,4 @@
-// SLAE x86 Assembly Security Expert Course  
+// SLAE x86 Assembly Expert Course  
 // Student ID : SLAE-1314 
 // Xenofon Vassilakopoulos 
 
