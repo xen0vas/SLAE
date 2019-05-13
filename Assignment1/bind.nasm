@@ -2,7 +2,9 @@
 ; 
 ; TCP port bind shellcode
 ;
-; Author: SLAE - 1314
+; Author: Xenofon Vassilakopoulos 
+; 
+; Student ID: SLAE - 1314 
 
 
 global _start 
