@@ -1,7 +1,7 @@
 
 # SecurityTube Linux Assembly Expert Course
 
-## Assignment1 - TCP Bind Shell
+## Assignment 1 - TCP Bind Shell
 
 ## SecurityTube Linux Assembly Expert Course
 
