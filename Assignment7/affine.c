@@ -56,48 +56,17 @@ char *hexTochar(const char *shellcode) {
     char *end;
     long j = strtol(shellcode, &end, 16);
     char *str = (char*)calloc(strlen(shellcode), sizeof(char*));
-/*
-	if ( end == shellcode )  {
-		printf("\n\nNothing parsed from String \n\n");
+    int i=0;
+    while(1){
+    	sprintf(str + i * sizeof(char),"%c", (int)j);
+    	i++;
+    	j = strtol(end, &end, 16);
+	if (j == 0)
+        	break; 
 	}
-  	else if ('\0' != *end) {
-    		printf("\n\n %s \n\nextra characters at end of input:\n\n%s\n", shellcode, end);
-  	} else if ((LONG_MIN == j || LONG_MAX == j) && ERANGE == errno) {
-    		printf("%s \n\nout of range of type long\n", shellcode);
-  	} else if (j > INT_MAX) {
-    		printf("%ld \n\ngreater than INT_MAX\n", j);
-  	} else if (j < INT_MIN) {
-     		printf("\n\n%ld less than INT_MIN\n", j);
-  	} //else {
-*/ 
-   		int i=0;
-    		while(1){
-        		sprintf(str + i * sizeof(char),"%c", (int)j);
-        		i++;
-        		j = strtol(end, &end, 16);
-			if (j == 0)
-            		break; 
-    	//	}
-   		}
 return str;
 }
 
-/*
-char *hexTochar(char *shellcode) {
-    char *end;
-    long int j = strtol(shellcode, &end, 16);
-    char *str = (char*)malloc(strlen(shellcode) * sizeof(char*));
-    int i=0;
-    for ( ;; ) {
-        sprintf(str + i * sizeof(char),"%c", (int)j);
-        i++;
-        j = strtol(end, &end, 16);
-	if (j == 0)
-	    break; 
-    }
-    return str;
-}
-*/
 /*
 * Affine cipher - encryption function
 */
