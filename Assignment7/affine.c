@@ -10,8 +10,6 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
-#include <limits.h>
-#include <errno.h>
 
 /* 
 * this function used to strip the \x chars from the string that holds the shellcode instructions.
