@@ -1,6 +1,6 @@
 # SecurityTube Linux Assembly Expert Course
 
-## Assignment7 - Custom Crypter
+## Assignment 7 - Custom Crypter
 
 ## SecurityTube Linux Assembly Expert Course
 
