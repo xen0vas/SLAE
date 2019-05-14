@@ -1,3 +1,11 @@
+/*
+* Affine Cipher - Assignment 7
+*
+* Author: Xenofon Vassilakopoulos
+*
+* Student ID: SLAE-1314
+*/
+
 #include <stdio.h>  
 
 // Recursive function to return gcd of a and b 
