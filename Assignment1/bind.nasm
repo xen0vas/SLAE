@@ -38,7 +38,10 @@ mov edi, eax     ; EAX will store the return value of the socket
 ;;server.sin_port = htons(PORT);
 ;;server.sin_addr.s_addr = INADDR_ANY; 
 
-push eax         ; INADDR_ANY 0.0.0.0
+mov al, 0x66 ; call SocketCall() in order to use the SYS_BIND argument
+inc bl       ; increase the ebx from 0x1 to 0x2 which indicates the bind() syscall
+
+push edx         ; INADDR_ANY 0.0.0.0
 push word 0xd204 ; port value 1234 in Network Byte order
 push bx          ; AF_INET constant 
 mov ecx, esp     ; stack alignment. ECX points to struct
@@ -46,9 +49,6 @@ mov ecx, esp     ; stack alignment. ECX points to struct
 ;; bind(sockfd, (struct sockaddr *) &server, sizeof(server));
 ;; using the strace command the following output gives the values used 
 ;; bind(3, {sa_family=AF_INET, sin_port=htons(1234), sin_addr=inet_addr("0.0.0.0")}, 16)
-
-mov al, 0x66 ; call SocketCall() in order to use the SYS_BIND argument
-inc bl       ; increase the ebx from 0x1 to 0x2 which indicates the bind() syscall 
 
 push byte 0x10   ; sizeof(server)
 push ecx         ; (struct sockaddr *) &server
@@ -58,7 +58,7 @@ int 0x80         ; call syscall interrupt to execute the arguments
  
 ;;listen(sockfd, 0);
 push edx         ; push 0 into the stack 
-push esi         ; push sockfd descriptor
+push edi         ; push sockfd descriptor
 mov ecx, esp     ; now point to Listen() syscall
 add ebx, 0x2     ; add 0x2 to ebx that has the value 0x2. 0x4 indicates the listen() syscall 
 mov al, 0x66     ; call SocketCall() in order to use the SYS_LISTEN argument
