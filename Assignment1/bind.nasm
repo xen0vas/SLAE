@@ -34,16 +34,13 @@ mov edi, eax     ; EAX will store the return value of the socket
                  ; syscalls so it will be saved at EDI register.  
                  ; Also we will need the EAX register to use with other syscalls
 
-mov al, 0x66     ; call SocketCall() in order to use the SYS_BIND argument
-inc bl           ; increase the ebx from 0x1 to 0x2 which indicates the bind() syscall 
-
 ;;server.sin_family = AF_INET; 
 ;;server.sin_port = htons(PORT);
 ;;server.sin_addr.s_addr = INADDR_ANY; 
 
 push eax         ; INADDR_ANY 0.0.0.0
 push word 0xd204 ; port value 1234 in Network Byte order
-push byte 0x2    ; AF_INET constant 
+push bx          ; AF_INET constant 
 mov ecx, esp     ; stack alignment. ECX points to struct
 
 ;; bind(sockfd, (struct sockaddr *) &server, sizeof(server));
@@ -72,7 +69,7 @@ mov al, 0x66 ; call SocketCall() in order to use the SYS_ACCEPT argument
 inc bl       ; increase the ebx from 0x4 to 0x5 which indicates the Accept() syscall 
 push edx     ; push NULL into the stack
 push edx     ; push NULL into the stack
-push esi     ; push sockfd descriptor 
+push edi     ; push sockfd descriptor 
 mov ecx, esp ; point to Accept()
 int 0x80     ; call syscall interrupt to execute the arguments
 
