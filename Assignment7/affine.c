@@ -145,7 +145,7 @@ void message(char *msg)
    printf("\n\n[x] Error: %s \n\n[!] Usage: ./affine <option> <shellcode> \n\nOptions: \n\t -d : Decryption \n\t -e : Encryption\n\n", msg);
 }
 
-unsigned char* toString(char *byte)
+unsigned char* toCharByte(char *byte)
 {
     if (byte == NULL || !strcmp(byte, ""))
     {
@@ -173,7 +173,6 @@ unsigned char* toString(char *byte)
     chr =  hexTochar(str);
     free(str);
     free(alpha);
-    //free(ch); 
     return chr;
 }
 
@@ -186,7 +185,7 @@ if (  argc < 2 || argc < 3  )
         return 1;
 }
 
-unsigned char *shellcode = toString(argv[2]); 
+unsigned char *shellcode = toCharByte(argv[2]); 
 
 if (shellcode != NULL && strncmp(argv[1],"-e",2) == 0)
 {
