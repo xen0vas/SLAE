@@ -11,7 +11,7 @@
 * Version : 1.0.1
 * gcc -m32 -fno-stack-protector -z execstack affine.c -o affine
 * 
-* Usage : 
+* [!] Usage : 
 *
 * encryption -> ./affine -e \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x89\xe2\x53\x89\xe1\xb0\x0b\xcd\x80
 *
@@ -106,7 +106,6 @@ for(k=0; buffer[k]!='\0'; k++)
 }
 
 printf("\n");
-//free(buf2);
 return buf;
 }
 
