@@ -7,6 +7,7 @@
 * Homepage : https://xenovass.wordpress.com/2019/05/15/slae-assignment-7-create-a-custom-crypter/ 
 * Tested on: 
 * - Linux kali 4.19.0-kali5-686-pae #1 SMP Debian 4.19.37-1kali1 (2019-05-09) i686 GNU/Linux
+* - Linux slae 3.13.0-32-generic #57~precise1-Ubuntu SMP Tue Jul 15 03:50:54 UTC 2014 i686 i686 i386 GNU/Linux
 * Description: Crypter which encrypts, decrypts and executes execve shellcode using Affine cipher
 * Version : 1.0.1
 * gcc -m32 -fno-stack-protector -z execstack affine.c -o affine
