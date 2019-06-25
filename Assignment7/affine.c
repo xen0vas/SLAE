@@ -155,6 +155,7 @@ unsigned char* toCharByte(char *byte)
     char cbyte[len];
     strcpy(cbyte, byte);
 
+    // allocate the 1/3 of the total char size
     unsigned char* str = (unsigned char*)calloc(len / 3, sizeof(str));
     unsigned char* chr = (unsigned char*)calloc(len / 3 , sizeof(chr));
     char* alpha = (char*)malloc((len / 3) * sizeof(alpha));
