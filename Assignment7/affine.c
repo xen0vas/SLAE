@@ -1,5 +1,5 @@
 /*
-* Title: Linux/x86 - Shellcode Crypter 
+* Title: Linux/x86 - Shellcode Custom Crypter using Affine cipher 
 * Date: 15.05.2019
 * Author: Xenofon Vassilakopoulos 
 * Student ID: SLAE-1314 
