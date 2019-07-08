@@ -14,4 +14,8 @@
 
 The goal of this assignment is to create a custom crypter 
 
+## Create a custom crypter like the one shown in the “crypters” video
+## Feel free to use any existing encryption schema
+##Can use any programming language
+
 ~~~~~~~~~
