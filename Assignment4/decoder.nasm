@@ -1,10 +1,10 @@
-;; Title 		        : Linux/x86 Decoder - ROL/NOT/ADD/XOR execve(/bin/sh) Shellcode (114 bytes)
-;; Author		        : Xenofon Vassilakopoulos 
-;; Date			        : December, 2019
-;; Tested on		    : Linux kali 5.3.0-kali2-686-pae #1 SMP Debian 5.3.9-3kali1 (2019-11-20) i686 GNU/Linux
-;; Architecture		  : i686 GNU/Linux
+;; Title	        : Linux/x86 Decoder - ROL/NOT/ADD/XOR execve(/bin/sh) Shellcode (114 bytes)
+;; Author	        : Xenofon Vassilakopoulos 
+;; Date	                : December, 2019
+;; Tested on	        : Linux kali 5.3.0-kali2-686-pae #1 SMP Debian 5.3.9-3kali1 (2019-11-20) i686 GNU/Linux
+;; Architecture	        : i686 GNU/Linux
 ;; Shellcode Length	: 117 bytes
-;; SLAE-ID 		      : SLAE - 1314 
+;; SLAE-ID 	        : SLAE - 1314 
 
 
 global _start
