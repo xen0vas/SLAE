@@ -5,3 +5,7 @@
 #### for more info check out my blog 
 
 https://xenovass.wordpress.com/2019/12/27/slae32-assignment-4-custom-encoding-scheme/
+
+### Packetstormsecurity
+
+https://packetstormsecurity.com/files/155759/Linux-x86-Encoder-Decoder-Shellcode.html
