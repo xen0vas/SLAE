@@ -3,7 +3,7 @@
 ;; Date	                : December, 2019
 ;; Tested on	        : Linux kali 5.3.0-kali2-686-pae #1 SMP Debian 5.3.9-3kali1 (2019-11-20) i686 GNU/Linux
 ;; Architecture	        : i686 GNU/Linux
-;; Shellcode Length	: 117 bytes
+;; Shellcode Length	: 114 bytes
 ;; SLAE-ID 	        : SLAE - 1314 
 
 
