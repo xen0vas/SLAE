@@ -1,11 +1,11 @@
 
 ;; Author	        : Xenofon Vassilakopoulos 
-;; Title	        : Linux/x86 - Encoder - Random Bytes + XOR/SUB/NOT/ROR  / Decoder - ROL/NOT/ADD/XOR execve(/bin/sh) 
-;; Description          : 117 bytes small Linux/x86 encoding of random bytes + XOR/SUB/NOT/ROR and also decodes ROL/NOT/ADD/XOR execve(/bin/sh) shellcode.
+;; Title	        : Linux/x86 - Decoder - ROL/NOT/ADD/XOR execve(/bin/sh) 
+;; Description          : decodes execve(/bin/sh) shellcode using ROL/NOT/ADD/XOR plus removes inserted random bytes.
 ;; Date	                : July, 2019
 ;; Tested on	        : Linux kali 5.3.0-kali2-686-pae #1 SMP Debian 5.3.9-3kali1 (2019-11-20) i686 GNU/Linux
 ;; Architecture	        : i686 GNU/Linux
-;; Shellcode Length	: 117 bytes
+;; Shellcode Length	: 114 bytes
 ;; SLAE-ID 	        : SLAE - 1314 
 
 
