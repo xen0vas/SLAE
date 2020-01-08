@@ -1,5 +1,6 @@
-;; Title	        : Linux/x86 Decoder - ROL/NOT/ADD/XOR execve(/bin/sh) Shellcode (114 bytes)
+;; Title	        : Linux/x86 - Encoder - Random Bytes + XOR/SUB/NOT/ROR  / Decoder - ROL/NOT/ADD/XOR execve(/bin/sh) 
 ;; Author	        : Xenofon Vassilakopoulos 
+;; Description          : 117 bytes small Linux/x86 encoding of random bytes + XOR/SUB/NOT/ROR and also decodes ROL/NOT/ADD/XOR execve(/bin/sh) shellcode.
 ;; Date	                : December, 2019
 ;; Tested on	        : Linux kali 5.3.0-kali2-686-pae #1 SMP Debian 5.3.9-3kali1 (2019-11-20) i686 GNU/Linux
 ;; Architecture	        : i686 GNU/Linux
