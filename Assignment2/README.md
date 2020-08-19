@@ -4,5 +4,5 @@
 
 #### for more info check out my blog 
 
-https://xenovass.wordpress.com/2020/08/19/slae32-assignment-5-analyze-shellcode/
+
 
