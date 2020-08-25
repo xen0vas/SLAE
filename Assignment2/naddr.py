@@ -1,5 +1,11 @@
 #!/usr/bin/python
 
+'''
+# Author: Xenofon Vassilakopoulos 
+# Script Description : transforms ip address and tcp port into network byte order representation 
+# SLAE-ID: SLAE - 1314 
+'''
+
 import socket, struct, sys
 ip=sys.argv[1]
 tip = socket.inet_aton(ip)
