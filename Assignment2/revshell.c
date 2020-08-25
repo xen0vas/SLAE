@@ -1,3 +1,4 @@
+/** 
 # Title: Linux/x86 - Reverse TCP Shellcode ( 84 bytes )
 # Author: Xenofon Vassilakopoulos 
 # Date: 2020-08-23
@@ -6,6 +7,7 @@
 # Shellcode Length: 84 bytes
 # SLAE-ID: SLAE - 1314 
 # Description : configurable reverse tcp shellcode
+*/
 
 #include <stdio.h>
 #include <string.h>
