@@ -1,10 +1,10 @@
-# Title: Linux/x86 - Reverse TCP Shellcode ( 84 bytes )
-# Author: Xenofon Vassilakopoulos 
-# Date: 2020-08-23
-# Tested on: Linux 3.13.0-32-generic #57~precise1-Ubuntu i686 i386 GNU/Linux
-# Architecture: i686 GNU/Linux
-# Shellcode Length: 84 bytes
-# SLAE-ID: SLAE - 1314 
+; Title: Linux/x86 - Reverse TCP Shellcode ( 84 bytes )
+; Author: Xenofon Vassilakopoulos 
+; Date: 2020-08-23
+; Tested on: Linux 3.13.0-32-generic #57~precise1-Ubuntu i686 i386 GNU/Linux
+; Architecture: i686 GNU/Linux
+; Shellcode Length: 84 bytes
+; SLAE-ID: SLAE - 1314 
 
 global _start 
 section .text 
