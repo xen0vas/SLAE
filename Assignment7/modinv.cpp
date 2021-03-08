@@ -8,6 +8,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <iostream>
+
 using namespace std;
 
 // A method to find multiplicative inverse of
