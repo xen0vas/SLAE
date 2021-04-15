@@ -4,7 +4,4 @@
 
 #### for more info check out my blog 
 
-
-- https://xen0vas.com/2020/07/16/slae32-assignment-3-egg-hunter/
-
 - https://xen0vas.github.io/SLAE32-Assignment-3-EggHunter/
