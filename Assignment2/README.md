@@ -4,6 +4,6 @@
 
 #### for more info check out my blog 
 
-https://xenovass.wordpress.com/2020/08/22/slae32-assignment-2-reverse-tcp-shell/
+https://xen0vas.github.io/SLAE32-Assignment-2-Reverse_TCP_Shell/
 
 
