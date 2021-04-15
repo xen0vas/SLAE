@@ -4,4 +4,4 @@
 
 #### for more info check out my blog :
 
-https://xenovass.wordpress.com/2019/12/27/slae32-assignment-4-custom-encoding-scheme/
+https://xen0vas.github.io/slae32-assignment-4-custom-encoding-scheme/
