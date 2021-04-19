@@ -4,4 +4,4 @@
 
 ### Visit my blog to see the writeups for the SLAE Assignments
 
-https://xenovass.wordpress.com/blog/
+https://xen0vas.github.io/
